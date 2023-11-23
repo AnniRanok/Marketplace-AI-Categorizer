@@ -39,4 +39,4 @@ En pièces jointes, tu trouveras un exemple de mise en œuvre de l’approche de
 
 # La deuxième itération: réaliser une classification supervisée à partir des images, mettre en place une data augmentation afin d’optimiser le modèle.
 
-Pour élargir notre gamme de produits, en particulier dans l’épicerie fine, il faut tester la collecte de produits à base de “champagne” via l’API disponible ici https://rapidapi.com/edamam/api/edamam-food-and-grocery-database et nous fournir une extraction des 10 premiers produits dans un fichier “.csv”, contenant pour chaque produit les données suivantes : foodId, label, category, foodContentsLabel, image.
+# Pour élargir notre gamme de produits, en particulier dans l’épicerie fine, il faut tester la collecte de produits à base de “champagne” via l’API disponible ici https://rapidapi.com/edamam/api/edamam-food-and-grocery-database et nous fournir une extraction des 10 premiers produits dans un fichier “.csv”, contenant pour chaque produit les données suivantes : foodId, label, category, foodContentsLabel, image.
