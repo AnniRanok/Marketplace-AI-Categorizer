@@ -1,42 +1,37 @@
 # OC_Projet_6
 
-# L’entreprise "Place de marché” souhaite lancer une marketplace e-commerce.
+# "Place de marché" company wishes to launch an e-commerce marketplace.
+On this marketplace, sellers offer items to buyers by posting a photo and a description.
 
+Currently, the categorization of an item is done manually by the sellers, making it unreliable. Moreover, the volume of items is currently very small.
 
-Sur la place de marché, des vendeurs proposent des articles à des acheteurs en postant une photo et une description.
+To make the user experience for sellers (ease of posting new items) and buyers (ease of product search) as smooth as possible, and with the view of scaling up, it becomes necessary to automate this task.
 
-Pour l'instant, l'attribution de la catégorie d'un article est effectuée manuellement par les vendeurs, et est donc peu fiable. De plus, le volume des articles est pour l’instant très petit.
+The mission is to conduct, in a first iteration, a feasibility study of an article classification engine, based on an image and a description, to automate the categorization of the item.
+You need to analyze the textual descriptions and images of the products, through the following steps:
 
-Pour rendre l’expérience utilisateur des vendeurs (faciliter la mise en ligne de nouveaux articles) et des acheteurs (faciliter la recherche de produits) la plus fluide possible, et dans l'optique d'un passage à l'échelle, il devient nécessaire d'automatiser cette tâche.
+Preprocessing of text or image data as appropriate;
+Feature extraction;
+Dimension reduction to 2D, to project the products onto a 2D graph as points whose color corresponds to the actual category;
+Analysis of the graph to deduce, with the help of descriptions or images, the feasibility of automatically grouping products of the same category;
+Implementation of a measure to confirm your visual analysis, by calculating the similarity between the actual categories and the categories resulting from a segmentation into clusters.
+Could you demonstrate, with this approach, the feasibility of automatically grouping products of the same category?
 
+## Here are the constraints:
 
-# La mission est de réaliser, dans une première itération, une étude de faisabilité d'un moteur de classification d'articles, basé sur une image et une description, pour l'automatisation de l'attribution de la catégorie de l'article.
+To extract text features, it will be necessary to implement:
+Two "bag-of-words" type approaches, simple word counting and Tf-idf;
+A classic word/sentence embedding approach with Word2Vec (or Glove or FastText);
+A word/sentence embedding approach with BERT;
+A word/sentence embedding approach with USE (Universal Sentence Encoder).
+Attached, you will find an example of implementing these text feature extraction approaches on another dataset. I invite you to use it as a starting point, it will save you a lot of time!
 
-Tu dois analyser les descriptions textuelles et les images des produits, au travers des étapes suivantes : 
+To extract image features, it will be necessary to implement:
+An algorithm of the type SIFT / ORB / SURF;
+A CNN Transfer Learning type algorithm.
+Regarding the SIFT approach, I invite you to look at the webinar we have realized, available in the resources.
 
-Un prétraitement des données texte ou image suivant le cas ;
-Une extraction de features ;
-Une réduction en 2 dimensions, afin de projeter les produits sur un graphique 2D, sous la forme de points dont la couleur correspondra à la catégorie réelle ;
-Analyse du graphique afin d’en déduire ou pas, à l’aide des descriptions ou des images, la faisabilité de regrouper automatiquement des produits de même catégorie ;
-Réalisation d’une mesure pour confirmer ton analyse visuelle, en calculant la similarité entre les catégories réelles et les catégories issues d’une segmentation en clusters.
-Pourrais-tu nous démontrer, par cette approche, la faisabilité de regrouper automatiquement des produits de même catégorie ?
+Attached, you will find an example of implementing the CNN Transfer Learning type approach for image feature extraction on another dataset. I invite you to use it as a starting point, it will save you a lot of time!
 
-Voici les contraintes : 
-
-Afin d’extraire les features texte, il sera nécessaire de mettre en œuvre : 
-deux approches de type “bag-of-words”, comptage simple de mots et Tf-idf ;
-une approche de type word/sentence embedding classique avec Word2Vec (ou Glove ou FastText) ;
-une approche de type word/sentence embedding avec BERT ;
-une approche de type word/sentence embedding avec USE (Universal Sentence Encoder). 
-En pièce jointe, tu trouveras un exemple de mise en œuvre de ces approches d’extraction de features texte sur un autre dataset. Je t’invite à l’utiliser comme point de départ, cela va te faire gagner beaucoup de temps !
-
-Afin d’extraire les features image, il sera nécessaire de mettre en œuvre :
-un algorithme de type SIFT / ORB / SURF ;
-un algorithme de type CNN Transfer Learning.
-Concernant l’approche de type SIFT, je t’invite à regarder le webinaire que nous avons réalisé, disponible dans les ressources.
-
-En pièces jointes, tu trouveras un exemple de mise en œuvre de l’approche de type CNN Transfer Learning d’extraction de features images sur un autre dataset. Je t’invite à l’utiliser comme point de départ, cela va te faire gagner beaucoup de temps !
-
-# La deuxième itération: réaliser une classification supervisée à partir des images, mettre en place une data augmentation afin d’optimiser le modèle.
-
-## Pour élargir notre gamme de produits, en particulier dans l’épicerie fine, il faut tester la collecte de produits à base de “champagne” via l’API disponible ici https://rapidapi.com/edamam/api/edamam-food-and-grocery-database et nous fournir une extraction des 10 premiers produits dans un fichier “.csv”, contenant pour chaque produit les données suivantes : foodId, label, category, foodContentsLabel, image.
+## The second iteration: carry out supervised classification from images, implement data augmentation to optimize the model.
+## To expand our product range, especially in fine groceries, it is necessary to test the collection of products based on "champagne" via the API available here https://rapidapi.com/edamam/api/edamam-food-and-grocery-database and provide us with an extraction of the first 10 products in a ".csv" file, containing for each product the following data: foodId, label, category, foodContentsLabel, image.
