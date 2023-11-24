@@ -31,7 +31,5 @@ An algorithm of the type SIFT / ORB / SURF;
 A CNN Transfer Learning type algorithm.
 Regarding the SIFT approach, I invite you to look at the webinar we have realized, available in the resources.
 
-Attached, you will find an example of implementing the CNN Transfer Learning type approach for image feature extraction on another dataset. I invite you to use it as a starting point, it will save you a lot of time!
-
 ## The second iteration: carry out supervised classification from images, implement data augmentation to optimize the model.
 ## To expand our product range, especially in fine groceries, it is necessary to test the collection of products based on "champagne" via the API available here https://rapidapi.com/edamam/api/edamam-food-and-grocery-database and provide us with an extraction of the first 10 products in a ".csv" file, containing for each product the following data: foodId, label, category, foodContentsLabel, image.
