@@ -1,35 +1,130 @@
-# OC_Projet_6
 
-# "Place de marché" company wishes to launch an e-commerce marketplace.
-On this marketplace, sellers offer items to buyers by posting a photo and a description.
+# Smart Product Categorization
 
-Currently, the categorization of an item is done manually by the sellers, making it unreliable. Moreover, the volume of items is currently very small.
+This repository contains an AI-driven prototype designed for the **"Place de marché"** e-commerce platform.  
+It automates the categorization of products based on both textual descriptions and product images.  
+The project aims to improve scalability and user experience for both sellers and buyers.
 
-To make the user experience for sellers (ease of posting new items) and buyers (ease of product search) as smooth as possible, and with the view of scaling up, it becomes necessary to automate this task.
 
-The mission is to conduct, in a first iteration, a feasibility study of an article classification engine, based on an image and a description, to automate the categorization of the item.
-You need to analyze the textual descriptions and images of the products, through the following steps:
 
-Preprocessing of text or image data as appropriate;
-Feature extraction;
-Dimension reduction to 2D, to project the products onto a 2D graph as points whose color corresponds to the actual category;
-Analysis of the graph to deduce, with the help of descriptions or images, the feasibility of automatically grouping products of the same category;
-Implementation of a measure to confirm your visual analysis, by calculating the similarity between the actual categories and the categories resulting from a segmentation into clusters.
-Could you demonstrate, with this approach, the feasibility of automatically grouping products of the same category?
+##  Project Overview
 
-## Here are the constraints:
+Currently, product categorization is done manually by sellers, which is error-prone and inconsistent.  
+This project explores whether product classification can be automated using machine learning techniques.
 
-To extract text features, it will be necessary to implement:
-Two "bag-of-words" type approaches, simple word counting and Tf-idf;
-A classic word/sentence embedding approach with Word2Vec (or Glove or FastText);
-A word/sentence embedding approach with BERT;
-A word/sentence embedding approach with USE (Universal Sentence Encoder).
-Attached, you will find an example of implementing these text feature extraction approaches on another dataset. I invite you to use it as a starting point, it will save you a lot of time!
+The scope includes:
+- Unsupervised clustering and 2D visualization
+- Supervised classification with data augmentation
+- Feature extraction from both text and images
+- External data enrichment using the [Edamam API](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database)
 
-To extract image features, it will be necessary to implement:
-An algorithm of the type SIFT / ORB / SURF;
-A CNN Transfer Learning type algorithm.
-Regarding the SIFT approach, I invite you to look at the webinar we have realized, available in the resources.
 
-## The second iteration: carry out supervised classification from images, implement data augmentation to optimize the model.
-## To expand our product range, especially in fine groceries, it is necessary to test the collection of products based on "champagne" via the API available here https://rapidapi.com/edamam/api/edamam-food-and-grocery-database and provide us with an extraction of the first 10 products in a ".csv" file, containing for each product the following data: foodId, label, category, foodContentsLabel, image.
+
+## 📁 Project Structure
+"""
+SmartProductCategorization/
+├── notebooks/ # Jupyter notebooks for exploration
+├── data/ # Raw and processed data
+├── features/ # Extracted feature vectors
+├── models/ # Trained models
+├── api_edamam/ # Edamam API queries and CSV output
+├── utils/ # Utility functions
+└── README.md
+
+
+
+
+##  Feature Extraction
+
+###  Text Features:
+Implemented with multiple NLP approaches:
+- Bag of Words (word count)
+- TF-IDF
+- Word2Vec (pretrained embeddings)
+- BERT (sentence embeddings)
+- USE (Universal Sentence Encoder)
+
+### Image Features:
+Two parallel pipelines:
+- Classical feature detectors: SIFT / ORB / SURF
+- Deep learning embeddings via CNN (Transfer Learning with MobileNet / ResNet)
+
+
+
+## Clustering & Visualization
+
+To evaluate if automatic product grouping is feasible:
+
+- Dimensionality reduction (PCA, t-SNE)
+- Clustering analysis (e.g., KMeans, DBSCAN)
+- Visualization: each product as a 2D point, colored by its true category
+- Validation: ARI, NMI metrics between true categories and predicted clusters
+
+
+
+## Supervised Classification (2nd Iteration)
+
+- Image classifier (CNN)
+- Text classifier (e.g., TF-IDF + Logistic Regression)
+- Combined multimodal models (optional)
+- Data augmentation for generalization
+- Evaluation metrics: Accuracy, F1-score, Confusion Matrix
+
+
+
+## Edamam API Enrichment
+
+To test the expansion into high-end grocery categories (e.g., Champagne):
+
+- Queried **champagne** via Edamam API
+- Extracted the top 10 products
+- Saved in `champagne_products.csv` with:
+  - `foodId`
+  - `label`
+  - `category`
+  - `foodContentsLabel`
+  - `image`
+
+
+
+##  Project Status
+
+ Phase 1: Feature extraction & clustering feasibility study  
+ Phase 2: Classification experiments underway  
+ Next: API integration + production optimization
+
+
+
+##  Next Steps
+
+- Benchmark classifiers against clustering performance  
+- Optimize image preprocessing and augmentation strategies  
+- Expand categories and datasets  
+- Build a REST API for real-time inference
+
+
+
+##  Tech Stack
+
+- Python 3.10  
+- Pandas, NumPy, Scikit-learn  
+- TensorFlow / Keras  
+- OpenCV  
+- NLTK / SpaCy / Transformers  
+- Matplotlib, Seaborn  
+- Edamam API via RapidAPI
+
+
+
+##  Contributors
+
+This prototype was developed as part of a feasibility study for the "Place de marché" launch.  
+It aims to streamline product categorization and ensure a scalable foundation for future growth.
+
+
+
+## 📬 Contact
+
+📧 konar.inna@gmail.com  
+
+
