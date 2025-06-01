@@ -21,6 +21,7 @@ The scope includes:
 
 
 ##  Project Structure
+ ```
 SmartProductCategorization/
 ├── notebooks/         - Jupyter notebooks for exploration
 ├── data/              - Raw and processed data
@@ -29,6 +30,7 @@ SmartProductCategorization/
 ├── api_edamam/        - Edamam API queries and CSV output
 ├── utils/             - Utility functions
 └── README.md          - Project overview and documentation
+ ```
 
 <pre> ``` SmartProductCategorization/ ├── notebooks/ - Jupyter notebooks for exploration ├── data/ - Raw and processed data ├── features/ - Extracted feature vectors ├── models/ - Trained models ├── api_edamam/ - Edamam API queries and CSV output ├── utils/ - Utility functions └── README.md - Project overview and documentation ``` </pre>
 
